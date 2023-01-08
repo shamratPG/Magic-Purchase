@@ -1,19 +1,29 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
     height: 50px;
 
     .left {
         display: flex;
         align-items: center;
+        padding-left: 20px;
 
-        .item {
-            padding: 0 10px;
+        .menu-icon {
+            display: none;
+        }
 
-            .select-item {
-                border: none;
-                outline: none;
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+
+
+            .item {
+                padding: 0 10px;
+
+                .select-item {
+                    border: none;
+                    outline: none;
+                }
             }
         }
     }
@@ -28,17 +38,108 @@
         display: flex;
         align-items: center;
 
-        .item {
-            padding: 0 10px;
+        .menu-icon {
+            display: none;
+            padding-right: 20px;
+        }
 
-            .icons {
-                display: flex;
+        .menu-items {
+            display: flex;
+            align-items: center;
+
+            .item {
                 padding: 0 10px;
 
-                .icon {
+                .icons {
+                    display: flex;
                     padding: 0 10px;
+
+                    .icon {
+                        padding: 0 10px;
+                    }
+
+                    .cart {
+                        position: relative;
+
+                        .cart-number {
+                            position: absolute;
+                            background-color: blue;
+                            height: 15px;
+                            width: 15px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50%;
+                            color: white;
+                            font-size: 8px;
+                            font-weight: bold;
+                            top: -8px;
+                            right: 5px;
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+$mediaMaxWidth: 1260px;
+$mediaBp1Width: 960px;
+$mediaMinWidth: 480px;
+
+
+@media (max-width: $mediaBp1Width) {
+    .navbar {
+        .left {
+            position: relative;
+
+            .menu-icon {
+                display: block;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+
+            .menu-items {
+                position: absolute;
+                background-color: rgba(81, 81, 81, 0.9);
+                top: 33px;
+                left: 10px;
+                flex-direction: column;
+                border-radius: 10px;
+
+                .item {
+                    padding: 5px 10px;
+
+                    .select-item {
+                        background-color: inherit;
+                        color: white;
+                        border: none;
+                        outline: none;
+
+                        .select-option {
+                            background-color: rgba(81, 81, 81, 0.9);
+                        }
+                    }
+
+                    .link {
+                        color: white;
+                    }
+                }
+            }
+
+        }
+
+        .right {
+            .menu-icon {
+                display: block;
+            }
+
+            .menu-items {
+                display: none;
+            }
+        }
+
     }
 }
